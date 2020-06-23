@@ -14,6 +14,8 @@ class Request
     public $appId     = null;
     public $appSecret = null;
     public $queryParams = [];
+    public static $lastUrl;
+    public static $lastParams;
 
     /**
      * 设置app id
