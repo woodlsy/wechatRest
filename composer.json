@@ -1,0 +1,17 @@
+{
+    "name": "woodlsy/wechat-rest",
+    "description": "wechat api",
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "ext-curl": "*",
+        "php": ">= 7.0.0",
+        "woodlsy/http-client": "^0.1.8"
+    },
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "woodlsy\\wechatRest\\": "src/"
+        }
+    },
+}
