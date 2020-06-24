@@ -60,6 +60,8 @@ class Request
             $url .= '?' . http_build_query($this->queryParams);
         }
 
+        self::$lastUrl = $url;
+        self::$lastParams = $this->params;
         if (true === $post) {
             return $client->setUrl($url)->setData($this->params)->post();
         }

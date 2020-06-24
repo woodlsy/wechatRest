@@ -32,9 +32,9 @@ class Commit extends Request
      * @param string $templateId
      * @return $this
      */
-    public function setTemplateId(string $templateId):Commit
+    public function setTemplateId(string $templateId) : Commit
     {
-        $this->queryParams['template_id'] = $templateId;
+        $this->params['template_id'] = $templateId;
         return $this;
     }
 
@@ -45,9 +45,9 @@ class Commit extends Request
      * @param array $extJson
      * @return $this
      */
-    public function setExtJson(array $extJson):Commit
+    public function setExtJson(array $extJson) : Commit
     {
-        $this->queryParams['ext_json'] = addslashes(json_encode($extJson));
+        $this->params['ext_json'] = json_encode($extJson);
         return $this;
     }
 
@@ -58,9 +58,9 @@ class Commit extends Request
      * @param string $userVersion
      * @return $this
      */
-    public function setUserVersion(string $userVersion):Commit
+    public function setUserVersion(string $userVersion) : Commit
     {
-        $this->queryParams['user_version'] = $userVersion;
+        $this->params['user_version'] = $userVersion;
         return $this;
     }
 
@@ -71,9 +71,21 @@ class Commit extends Request
      * @param string $userDesc
      * @return $this
      */
-    public function setUserDesc(string $userDesc):Commit
+    public function setUserDesc(string $userDesc) : Commit
     {
-        $this->queryParams['user_desc'] = $userDesc;
+        $this->params['user_desc'] = $userDesc;
+        return $this;
+    }
+
+    /**
+     * 获取参数
+     *
+     * @author yls
+     * @return $this
+     */
+    public function getParams() : Commit
+    {
+        $this->params = json_encode($this->params);
         return $this;
     }
 
