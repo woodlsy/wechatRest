@@ -5,11 +5,11 @@ namespace woodlsy\wechatRest\wxa;
 
 use woodlsy\wechatRest\Request;
 
-class GetTemplateList extends Request
+class GetQrcode extends Request
 {
     public function __construct()
     {
-        $this->queryUrl = '/wxa/gettemplatelist';
+        $this->queryUrl = '/wxa/get_qrcode';
     }
 
     /**
@@ -19,7 +19,7 @@ class GetTemplateList extends Request
      * @param string $accessToken
      * @return $this
      */
-    public function setComponentAccessToken(string $accessToken) : GetTemplateDraftList
+    public function setAccessToken(string $accessToken) : GetQrcode
     {
         $this->queryParams['access_token'] = $accessToken;
         return $this;
