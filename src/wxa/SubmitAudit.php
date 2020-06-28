@@ -34,7 +34,19 @@ class SubmitAudit extends Request
      */
     public function setVersionDesc(string $versionDesc) : SubmitAudit
     {
-        $this->params['access_token'] = $versionDesc;
+        $this->params['version_desc'] = $versionDesc;
+        return $this;
+    }
+
+    /**
+     * 获取参数
+     *
+     * @author yls
+     * @return $this
+     */
+    public function getParams() : SubmitAudit
+    {
+        $this->params = json_encode($this->params);
         return $this;
     }
 

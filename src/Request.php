@@ -10,7 +10,7 @@ class Request
     const DOMAIN = 'https://api.weixin.qq.com';
     public $queryUrl = null;
 
-    public $params    = null;
+    public $params    = [];
     public $appId     = null;
     public $appSecret = null;
     public $queryParams = [];
