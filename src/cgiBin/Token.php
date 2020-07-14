@@ -13,4 +13,17 @@ class Token extends Request
         $this->queryParams['grant_type'] = 'client_credential';
     }
 
+    /**
+     * 获取参数
+     *
+     * @author yls
+     * @return $this
+     */
+    public function getParams() : Token
+    {
+        $this->queryParams['appid'] = $this->appId;
+        $this->queryParams['secret'] = $this->appSecret;
+        return $this;
+    }
+
 }
