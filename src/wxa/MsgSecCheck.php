@@ -22,7 +22,6 @@ class MsgSecCheck extends Request
     public function setAccessToken(string $accessToken) : MsgSecCheck
     {
         $this->queryParams['access_token'] = $accessToken;
-        $this->params['access_token'] = $accessToken;
         return $this;
     }
 
@@ -47,7 +46,7 @@ class MsgSecCheck extends Request
      */
     public function getParams() : MsgSecCheck
     {
-        $this->params = json_encode($this->params);
+        $this->params = json_encode($this->params,JSON_UNESCAPED_UNICODE);
         return $this;
     }
 

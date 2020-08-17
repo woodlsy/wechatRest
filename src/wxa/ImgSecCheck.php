@@ -22,7 +22,6 @@ class ImgSecCheck extends Request
     public function setAccessToken(string $accessToken) : ImgSecCheck
     {
         $this->queryParams['access_token'] = $accessToken;
-        $this->params['access_token'] = $accessToken;
         return $this;
     }
 
