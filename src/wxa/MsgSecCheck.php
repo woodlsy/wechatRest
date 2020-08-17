@@ -47,7 +47,7 @@ class MsgSecCheck extends Request
      */
     public function getParams() : MsgSecCheck
     {
-        $this->params = "{}";
+        $this->params = json_encode($this->params);
         return $this;
     }
 

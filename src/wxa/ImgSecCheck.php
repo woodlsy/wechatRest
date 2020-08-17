@@ -47,7 +47,7 @@ class ImgSecCheck extends Request
      */
     public function getParams() : ImgSecCheck
     {
-        $this->params = "{}";
+        $this->params = json_encode($this->params);
         return $this;
     }
 
