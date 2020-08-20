@@ -3,13 +3,16 @@ declare(strict_types = 1);
 
 namespace woodlsy\wechatRest\wxa;
 
+use woodlsy\httpClient\HttpCurl;
 use woodlsy\wechatRest\Request;
 
 class ImgSecCheck extends Request
 {
+    public $imgLocalPath;
+
     public function __construct()
     {
-        $this->queryUrl = '/wxa/msg_sec_check';
+        $this->queryUrl = '/wxa/img_sec_check';
     }
 
     /**
@@ -26,28 +29,40 @@ class ImgSecCheck extends Request
     }
 
     /**
-     * 设置图片
+     * 设置图片本地地址
      *
      * @author yls
-     * @param string $media
+     * @param string $localPath
      * @return $this
      */
-    public function setMedia(string $media) : ImgSecCheck
+    public function setImgLocalPath(string $localPath) : ImgSecCheck
     {
-        $this->params['media'] = $media;
+        $this->imgLocalPath = $localPath;
         return $this;
     }
 
     /**
-     * 获取参数
+     * 执行
      *
      * @author yls
-     * @return $this
+     * @param bool $post
+     * @return string
+     * @throws \woodlsy\httpClient\HttpClientException
      */
-    public function getParams() : ImgSecCheck
+    public function exec(bool $post = true) : string
     {
-        $this->params = json_encode($this->params);
-        return $this;
+        $url    = self::DOMAIN . $this->queryUrl;
+        $client = (new HttpCurl());
+
+        if (!empty($this->queryParams)) {
+            $url .= '?' . http_build_query($this->queryParams);
+        }
+
+        self::$lastUrl = $url;
+        self::$lastParams = $this->params;
+        $fileType = mime_content_type($this->imgLocalPath);
+        $data = array('media'=>new \CURLFile(realpath($this->imgLocalPath), $fileType));
+        return $client->setUrl($url)->setData($data)->setKeepDataFormat(true)->post();
     }
 
 }

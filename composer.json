@@ -6,6 +6,7 @@
     "require": {
         "ext-curl": "*",
         "ext-json": "*",
+        "ext-fileinfo": "*",
         "php": ">= 7.0.0",
         "woodlsy/http-client": "^0.1.8"
     },
