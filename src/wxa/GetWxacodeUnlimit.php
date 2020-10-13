@@ -52,6 +52,47 @@ class GetWxacodeUnlimit extends Request
     }
 
     /**
+     * 是否需要透明底色，为 true 时，生成透明底色的小程序
+     *
+     * @author yls
+     * @param bool $bgAline
+     * @return $this
+     */
+    public function isHyaline(bool $bgAline) : GetWxacodeUnlimit
+    {
+        $this->params['is_hyaline'] = $bgAline;
+        return $this;
+    }
+
+    /**
+     * 二维码的宽度，单位 px，最小 280px，最大 1280px
+     *
+     * @author yls
+     * @param int $width
+     * @return $this
+     */
+    public function width(int $width) : GetWxacodeUnlimit
+    {
+        $this->params['width'] = $width;
+        return $this;
+    }
+
+    /**
+     * 设置线条颜色
+     *
+     * @author yls
+     * @param bool  $auto 自动配置线条颜色，如果颜色依然是黑色，则说明不建议配置主色调，默认 false
+     * @param array $color ['r':0,'g':0,'b':0]
+     * @return $this
+     */
+    public function lineColor(bool $auto, array $color) : GetWxacodeUnlimit
+    {
+        $this->params['auto_color'] = $auto;
+        $this->params['line_color'] = $color;
+        return $this;
+    }
+
+    /**
      * 获取参数
      *
      * @author yls
@@ -60,7 +101,7 @@ class GetWxacodeUnlimit extends Request
     public function getParams() : GetWxacodeUnlimit
     {
         $this->params['width'] = 280;
-        $this->params = json_encode($this->params);
+        $this->params          = json_encode($this->params);
         return $this;
     }
 
