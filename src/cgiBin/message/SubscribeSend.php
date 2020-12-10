@@ -61,7 +61,7 @@ class SubscribeSend extends Request
      */
     public function setPage(string $page) : SubscribeSend
     {
-        $this->params['template_id'] = $page;
+        $this->params['page'] = $page;
         return $this;
     }
 
