@@ -4,6 +4,7 @@ declare(strict_types = 1);
 namespace woodlsy\wechatRest\wxa;
 
 use woodlsy\wechatRest\Request;
+use woodlsy\wechatRest\WechatRestException;
 
 class GetWxacodeUnlimit extends Request
 {
@@ -31,9 +32,13 @@ class GetWxacodeUnlimit extends Request
      * @author yls
      * @param string $scene
      * @return $this
+     * @throws WechatRestException
      */
     public function setScene(string $scene) : GetWxacodeUnlimit
     {
+        if (strlen($scene) > 32) {
+            throw new WechatRestException('scene 参数大于32个字符');
+        }
         $this->params['scene'] = $scene;
         return $this;
     }
@@ -100,8 +105,10 @@ class GetWxacodeUnlimit extends Request
      */
     public function getParams() : GetWxacodeUnlimit
     {
-        $this->params['width'] = 280;
-        $this->params          = json_encode($this->params);
+        if (!isset($this->params['width']) || empty($this->params['width'])) {
+            $this->params['width'] = 280;
+        }
+        $this->params = json_encode($this->params);
         return $this;
     }
 
