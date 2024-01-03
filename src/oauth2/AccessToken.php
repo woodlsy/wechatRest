@@ -31,7 +31,7 @@ class AccessToken extends Request
      * @author yls
      * @return $this
      */
-    public function getParams() : AccessToken
+    public function getParams() : Request
     {
         $this->queryParams['appid']      = $this->appId;
         $this->queryParams['secret']     = $this->appSecret;

@@ -31,7 +31,7 @@ class ApiComponentToken extends Request
      * @author yls
      * @return $this
      */
-    public function getParams() : ApiComponentToken
+    public function getParams() : Request
     {
         $this->params['component_appid']     = $this->appId;
         $this->params['component_appsecret'] = $this->appSecret;

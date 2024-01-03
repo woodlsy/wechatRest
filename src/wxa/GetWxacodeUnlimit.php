@@ -103,7 +103,7 @@ class GetWxacodeUnlimit extends Request
      * @author yls
      * @return $this
      */
-    public function getParams() : GetWxacodeUnlimit
+    public function getParams() : Request
     {
         if (!isset($this->params['width']) || empty($this->params['width'])) {
             $this->params['width'] = 280;

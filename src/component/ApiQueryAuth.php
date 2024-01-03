@@ -44,7 +44,7 @@ class ApiQueryAuth extends Request
      * @author yls
      * @return $this
      */
-    public function getParams() : ApiQueryAuth
+    public function getParams() : Request
     {
         $this->params['component_appid'] = $this->appId;
         $this->params                    = json_encode($this->params);

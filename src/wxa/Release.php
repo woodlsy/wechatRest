@@ -32,7 +32,7 @@ class Release extends Request
      * @author yls
      * @return $this
      */
-    public function getParams() : Release
+    public function getParams() : Request
     {
         $this->params = "{}";
         return $this;

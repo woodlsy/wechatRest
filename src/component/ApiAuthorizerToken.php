@@ -58,7 +58,7 @@ class ApiAuthorizerToken extends Request
      * @author yls
      * @return $this
      */
-    public function getParams() : ApiAuthorizerToken
+    public function getParams() : Request
     {
         $this->params['authorizer_appid']     = $this->appId;
         $this->params = json_encode($this->params);

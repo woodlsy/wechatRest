@@ -44,6 +44,18 @@ class Request
     }
 
     /**
+     * 获取参数
+     *
+     * @author yls
+     * @return $this
+     */
+    public function getParams() : Request
+    {
+        $this->params = json_encode($this->params,JSON_UNESCAPED_UNICODE);
+        return $this;
+    }
+
+    /**
      * 执行
      *
      * @author yls

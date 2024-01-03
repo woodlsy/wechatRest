@@ -44,7 +44,7 @@ class SubmitAudit extends Request
      * @author yls
      * @return $this
      */
-    public function getParams() : SubmitAudit
+    public function getParams() : Request
     {
         $this->params = json_encode($this->params);
         return $this;

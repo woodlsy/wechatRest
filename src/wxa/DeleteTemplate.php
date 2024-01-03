@@ -44,7 +44,7 @@ class DeleteTemplate extends Request
      * @author yls
      * @return $this
      */
-    public function getParams() : DeleteTemplate
+    public function getParams() : Request
     {
         $this->params = json_encode($this->params);
         return $this;

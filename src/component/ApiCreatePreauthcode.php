@@ -31,7 +31,7 @@ class ApiCreatePreauthcode extends Request
      * @author yls
      * @return $this
      */
-    public function getParams() : ApiCreatePreauthcode
+    public function getParams() : Request
     {
         $this->params['component_appid'] = $this->appId;
         $this->params                    = json_encode($this->params);

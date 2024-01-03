@@ -83,7 +83,7 @@ class Commit extends Request
      * @author yls
      * @return $this
      */
-    public function getParams() : Commit
+    public function getParams() : Request
     {
         $this->params = json_encode($this->params);
         return $this;
