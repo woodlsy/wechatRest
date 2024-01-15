@@ -91,16 +91,4 @@ class UniformSend extends Request
         return $this;
     }
 
-    /**
-     * 获取参数
-     *
-     * @author yls
-     * @return $this
-     */
-    public function getParams() : UniformSend
-    {
-        $this->params = json_encode($this->params,JSON_UNESCAPED_UNICODE);
-        return $this;
-    }
-
 }

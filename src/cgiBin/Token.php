@@ -19,7 +19,7 @@ class Token extends Request
      * @author yls
      * @return $this
      */
-    public function getParams() : Token
+    public function getParams() : Request
     {
         $this->queryParams['appid'] = $this->appId;
         $this->queryParams['secret'] = $this->appSecret;
